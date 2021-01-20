@@ -44,14 +44,24 @@ const initVisual = () => {
   activateIndex(0);
 };
 
-const moving = () => {};
-
 (function () {
+  let header;
+  let visual;
   let ani;
 
+  // jquery 확장
+  $.fn.isMoving = function () {
+    let viewportTop = $(window).scrollTop();
+    let viewportBottom = viewportTop + $(window).height();
+    let elementTop = $(this).offset().top;
+    let elementBottom = elementTop + $(this).outerHeight();
+
+    return viewportTop < elementBottom && elementTop < viewportBottom;
+  };
+
   $(window).on("load", () => {
-    const header = $("header");
-    const visual = $(".visual");
+    header = $("header");
+    visual = $(".visual");
     ani = $(".ani");
 
     header.addClass("load");
@@ -61,10 +71,7 @@ const moving = () => {};
     initVisual();
   });
 
-  $(window).on("load scroll", function () {
-    const header = $("header");
-    const visual = $(".visual");
-
+  $(window).on("load scroll", () => {
     const headerHeight = header.outerHeight();
     const visualHeight = visual.outerHeight();
     const scrollTop = $(window).scrollTop(); // 화면 높이값
@@ -76,5 +83,13 @@ const moving = () => {};
     }
   });
 
-  $(window).on("load, resize scroll", () => {});
+  $(window).on("load resize scroll", () => {
+    ani.each((idx, item) => {
+      if ($(item).isMoving()) {
+        $(item).addClass("moving");
+      } else {
+        $(item).removeClass("moving");
+      }
+    });
+  });
 })();

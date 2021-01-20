@@ -13,30 +13,32 @@
   }
 }
 
-.ani_y_Bottom {
+.ani.y_Bottom {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
-.ani_y_Bottom.moving {
+.ani.y_Bottom.moving {
   opacity: 1;
   transform: translateY(0px);
 }
-.ani_x_left {
+
+.ani_x_Left {
   opacity: 0;
   transform: translateX(-40px);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
-.ani_x_left.moving {
+.ani.x_Left.moving {
   opacity: 1;
   transform: translateX(0px);
 }
-.ani_x_right {
+
+.ani.x_Right {
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
-.ani_x_right.moving {
+.ani.x_Right.moving {
   opacity: 1;
   transform: translateX(0px);
 }
@@ -44,11 +46,11 @@
 .ani.scaleImg img {
   opacity: 1;
   transform: scale(1);
+  transition: all 1s ease-in-out;
 }
 .ani.scaleImg.moving img {
   opacity: 0;
   transform: scale(1.2);
-  transition: all 1s ease-in-out;
 }
 
 .ani.cover:after {
