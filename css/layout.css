@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.txt_center {
+  text-align: center;
+}
+
 /* 헤더 */
 header {
   position: fixed;
@@ -366,9 +370,13 @@ header.active .allMenuWrapBg {
   height: 120px;
   margin-bottom: 80px;
 }
+.img_box > img {
+  max-width: 100%;
+}
 
 .mainSec.mainSec1 {
   padding-bottom: 220px;
+  z-index: 1;
 }
 .mainSec1 .sec_tit {
   display: flex;
@@ -465,4 +473,25 @@ a.blue_Btn {
   position: absolute;
   right: -22%;
   top: 95%;
+}
+
+.mainSec.mainSec2 {
+  background: #ececec;
+}
+.mainSec2 .img_box {
+  text-align: center;
+}
+.mainSec2 .mainBtn {
+  display: inline-block;
+  width: 146px;
+  height: 48px;
+  line-height: 46px;
+  border: 1px solid #000;
+  color: #000;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.mainSec3 {
 }
